@@ -1,5 +1,5 @@
 .footer {
-  background: linear-gradient(135deg, #000000, #16a34a); // Dark green gradient background
+  background: linear-gradient(135deg, #000000, #16a34a); /* Dark green gradient background */
   color: white;
   padding: 40px 20px;
   display: flex;
@@ -11,17 +11,18 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    max-width: 1200px; // Constrain width for larger screens
+    max-width: 1200px; /* Constrain width for larger screens */
     margin-bottom: 20px;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
 
     .footer-section {
       flex: 1;
-      margin: 0 20px;
+      margin: 20px;
 
       h2 {
         font-size: 24px;
         margin-bottom: 10px;
-        border-bottom: 2px solid #5cc532; // Stylish underline with a lighter green
+        border-bottom: 2px solid #5cc532; /* Stylish underline with a lighter green */
       }
 
       p {
@@ -36,12 +37,12 @@
           margin: 10px 0;
 
           a {
-            color: #ffffff; // Use an accent color
+            color: #ffffff; /* Use an accent color */
             text-decoration: none;
             transition: color 0.3s;
 
             &:hover {
-              color: #c2e1c2; // Change on hover for interaction
+              color: #c2e1c2; /* Change on hover for interaction */
             }
           }
         }
@@ -49,6 +50,9 @@
     }
 
     .contact-form {
+      flex: 1;
+      margin: 20px;
+
       form {
         display: flex;
         flex-direction: column;
@@ -63,11 +67,11 @@
         }
 
         .form-input {
-          background: #3d5c43; // Slightly lighter background
+          background: #3d5c43; /* Slightly lighter background */
         }
 
         .form-textarea {
-          height: 100px; // Fixed height for textarea
+          height: 100px; /* Fixed height for textarea */
           background: #3d5c43;
         }
 
@@ -82,7 +86,7 @@
           transition: background 0.3s;
 
           &:hover {
-            background: #5cc532; // Darker shade on hover
+            background: #5cc532; /* Darker shade on hover */
           }
         }
       }
@@ -96,13 +100,54 @@
     color: #bbb;
 
     a {
-      color: #4CAF50; // Change link color to green
-      text-decoration: none; // Optional: remove underline
-      transition: color 0.3s; // Smooth color transition
+      color: #4CAF50; /* Change link color to green */
+      text-decoration: none; /* Optional: remove underline */
+      transition: color 0.3s; /* Smooth color transition */
 
       &:hover {
-        color: #45a049; // Darker green on hover
+        color: #45a049; /* Darker green on hover */
       }
+    }
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .footer-content {
+      flex-direction: column; /* Stack sections vertically on smaller screens */
+      align-items: center; /* Center the content */
+    }
+
+    .footer-section,
+    .contact-form {
+      margin: 10px 0; /* Reduce margin for smaller screens */
+    }
+  }
+
+  @media (max-width: 576px) {
+    .footer-content {
+      padding: 20px 10px; /* Reduce padding on very small screens */
+    }
+
+    .footer-section h2 {
+      font-size: 20px; /* Reduce heading size for small screens */
+    }
+
+    .footer-section p,
+    .footer-section li {
+      font-size: 14px; /* Adjust font size */
+    }
+
+    .form-input,
+    .form-textarea {
+      font-size: 14px; /* Adjust input font size */
+    }
+
+    .form-button {
+      font-size: 14px; /* Adjust button font size */
+    }
+
+    .footer-bottom {
+      font-size: 12px; /* Reduce footer-bottom text size */
     }
   }
 }
