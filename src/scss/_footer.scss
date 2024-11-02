@@ -1,0 +1,108 @@
+.footer {
+  background: linear-gradient(135deg, #000000, #16a34a); // Dark green gradient background
+  color: white;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px; // Constrain width for larger screens
+    margin-bottom: 20px;
+
+    .footer-section {
+      flex: 1;
+      margin: 0 20px;
+
+      h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+        border-bottom: 2px solid #5cc532; // Stylish underline with a lighter green
+      }
+
+      p {
+        line-height: 1.6;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+          margin: 10px 0;
+
+          a {
+            color: #ffffff; // Use an accent color
+            text-decoration: none;
+            transition: color 0.3s;
+
+            &:hover {
+              color: #c2e1c2; // Change on hover for interaction
+            }
+          }
+        }
+      }
+    }
+
+    .contact-form {
+      form {
+        display: flex;
+        flex-direction: column;
+
+        .form-input,
+        .form-textarea {
+          margin-bottom: 10px;
+          padding: 10px;
+          border: none;
+          border-radius: 5px;
+          font-size: 16px;
+        }
+
+        .form-input {
+          background: #3d5c43; // Slightly lighter background
+        }
+
+        .form-textarea {
+          height: 100px; // Fixed height for textarea
+          background: #3d5c43;
+        }
+
+        .form-button {
+          padding: 10px;
+          border: none;
+          border-radius: 5px;
+          background: #064b17;
+          color: white;
+          font-size: 16px;
+          cursor: pointer;
+          transition: background 0.3s;
+
+          &:hover {
+            background: #5cc532; // Darker shade on hover
+          }
+        }
+      }
+    }
+  }
+
+  .footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #bbb;
+
+    a {
+      color: #4CAF50; // Change link color to green
+      text-decoration: none; // Optional: remove underline
+      transition: color 0.3s; // Smooth color transition
+
+      &:hover {
+        color: #45a049; // Darker green on hover
+      }
+    }
+  }
+}
