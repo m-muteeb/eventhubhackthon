@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom'; // Import useNavigate and 
 import '../scss/_home.scss'; // Make sure to import the SCSS file for styling
 import heroBg from '../assets/green-abstract-geometric-background_23-2148370752.avif';
 import whyChooseUsBg from '../assets/green-abstract-geometric-background_23-2148370752.avif';
-import logo from '../assets/white logo.png';
+
 
 function HeroSection() {
 
@@ -14,7 +14,7 @@ function HeroSection() {
   };
   return (
     <div className="hero-section" style={{ backgroundImage: `url(${heroBg})` }}>
-      <img src={logo} className="logo" alt="Shop Nest Logo" />
+     
       <h1>Bring happiness to your life with Shop Nest</h1>
       <p>
         The future of business is yours to shape. Sign up for free and enjoy your online store free.
@@ -38,12 +38,36 @@ function HeroSection() {
 
 function OurServices() {
   const services = [
-    { title: 'On-time Delivery', description: 'We guarantee timely delivery of all your products.' },
-    { title: 'Quality First', description: 'Quality is our priority in all our products and services.' },
-    { title: 'Customer Care', description: 'We provide exceptional customer service 24/7.' },
-    { title: 'Seller Care', description: 'Support and resources for sellers to thrive.' },
-    { title: 'No Spam Products', description: 'We ensure no spam or low-quality products.' },
-    { title: 'Easy Returns', description: 'Hassle-free returns for a smooth shopping experience.' }
+    { 
+      title: 'Gourmet Dining', 
+      description: 'Experience a culinary journey with our gourmet dishes, made from the freshest ingredients.',
+      image: 'https://img.freepik.com/free-photo/boiled-chicken-with-asparagus-cauliflower_140725-9321.jpg?ga=GA1.1.1642102062.1730407199&semt=ais_siglip' // Replace with actual image URL
+    },
+    { 
+      title: 'Home Delivery', 
+      description: 'Enjoy your favorite meals delivered right to your door, hot and fresh.', 
+      image: 'https://img.freepik.com/premium-vector/delivery-man-giving-pizza-order-woman-customer-through-window_209620-312.jpg?ga=GA1.1.1642102062.1730407199&semt=ais_siglip' // Replace with actual image URL
+    },
+    { 
+      title: 'Catering Services', 
+      description: 'Let us cater your events with our customizable menus, perfect for any occasion.', 
+      image: 'https://img.freepik.com/free-photo/waiter-keeps-salver-with-snacks_8353-9582.jpg?ga=GA1.1.1642102062.1730407199&semt=ais_siglip' // Replace with actual image URL
+    },
+    { 
+      title: 'Outdoor Dining', 
+      description: 'Dine al fresco in our beautifully designed outdoor space, perfect for a relaxing meal.', 
+      image: 'https://img.freepik.com/premium-photo/hand-with-phone-records-live-music-festival-people-taking-photograph-with-smart-phone-concert_217236-10492.jpg?ga=GA1.1.1642102062.1730407199&semt=ais_siglip' // Replace with actual image URL
+    },
+    { 
+      title: 'Live Music Nights', 
+      description: 'Join us for an unforgettable evening with live music, enhancing your dining experience.', 
+      image: 'https://img.freepik.com/premium-photo/silhouette-guitarist-stage-fans_367038-94.jpg?ga=GA1.1.1642102062.1730407199&semt=ais_siglip' // Replace with actual image URL
+    },
+    { 
+      title: 'Special Dietary Options', 
+      description: 'We cater to all dietary needs with vegan, gluten-free, and allergen-friendly options.', 
+      image: 'https://img.freepik.com/free-photo/high-view-gmo-modified-food_23-2148747340.jpg?ga=GA1.1.1642102062.1730407199&semt=ais_siglip' // Replace with actual image URL
+    }
   ];
 
   return (
@@ -52,6 +76,7 @@ function OurServices() {
       <div className="services-container row">
         {services.map((service, index) => (
           <div className="service-card col-md-4 col-12" key={index}>
+            <img src={service.image} alt={service.title} className="service-image" />
             <h3>{service.title}</h3>
             <p>{service.description}</p>
           </div>
@@ -61,35 +86,50 @@ function OurServices() {
   );
 }
 
-function WhyChooseUs() {
+
+function FeaturedProducts() {
+  const products = [
+    { 
+      title: 'Gourmet Burger', 
+      description: 'Juicy beef burger with fresh toppings.',
+      image: 'https://img.freepik.com/free-photo/delicious-meat-burger-wooden-board_140725-950.jpg?ga=GA1.1.1642102062.1730407199&semt=ais_siglip', // Replace with actual image URL
+      price: '$12.99'
+    },
+    { 
+      title: 'Pasta Primavera', 
+      description: 'A delightful mix of seasonal vegetables and pasta.',
+      image: 'https://img.freepik.com/free-photo/penne-pasta-with-tomatos-parmesan-chees-top_140725-10622.jpg?ga=GA1.1.1642102062.1730407199&semt=ais_siglip', // Replace with actual image URL
+      price: '$10.99'
+    },
+    { 
+      title: 'Classic Margherita Pizza', 
+      description: 'Traditional pizza with fresh basil and mozzarella.',
+      image: 'https://img.freepik.com/free-photo/vegetable-based-pizza-with-white-cheese-cherries_114579-1959.jpg?ga=GA1.1.1642102062.1730407199&semt=ais_siglip', // Replace with actual image URL
+      price: '$9.99'
+    }
+  ];
+
   return (
-    <div className="why-choose-us" style={{ backgroundImage: `url(${whyChooseUsBg})` }}>
-      <h2>Why Choose Us</h2>
-      <div className="reasons-container row">
-        <div className="reason-card col-md-4 col-12">
-          <img
-            src="https://img.freepik.com/premium-photo/dynamic-office-scene-logistics-team-strategizing-aidriven-supply-chain-optimization-efficient_980716-568910.jpg?w=740"
-            alt="Experienced Team"
-            className="reason-image"
-          />
-          <p>Experienced team with a proven track record</p>
-        </div>
-        <div className="reason-card col-md-4 col-12">
-          <img
-            src="https://img.freepik.com/premium-photo/text-customer-focus-notebook-with-pen-magnifying-glass-gray-background_406607-4097.jpg?w=740"
-            alt="Customer Focused"
-            className="reason-image"
-          />
-          <p>Customer-focused approach and improve the customer experience</p>
-        </div>
-        <div className="reason-card col-md-4 col-12">
-          <img
-            src="https://img.freepik.com/premium-photo/colorful-3d-letters-spelling-best-price-blue-background_639785-103476.jpg?ga=GA1.2.1974615186.1708798045&semt=ais_hybrid"
-            alt="Affordable Pricing"
-            className="reason-image"
-          />
-          <p>Affordable pricing with high-quality services</p>
-        </div>
+    <div className="featured-products">
+      <h2>Featured Products</h2>
+      <div className="products-container row">
+        {products.map((product, index) => (
+          <div className="product-card col-md-4 col-12" key={index}>
+            <img
+              src={product.image}
+              alt={product.title}
+              className="product-image"
+            />
+            <h3>{product.title}</h3>
+            <p>{product.description}</p>
+            <span className="product-price">{product.price}</span>
+          </div>
+        ))}
+      </div>
+      <div className="dashboard-button-container">
+        <button className="btn btn-primary" onClick={() => window.location.href = '/buyer-dashboard'}>
+          Go to Buyer Dashboard
+        </button>
       </div>
     </div>
   );
@@ -138,7 +178,7 @@ function Home() {
     <div className="home-page">
       <HeroSection />
       <OurServices />
-      <WhyChooseUs />
+      <FeaturedProducts />
       <FAQs />
     </div>
   );

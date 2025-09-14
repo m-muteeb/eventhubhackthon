@@ -7,7 +7,6 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import AccessDenied from './pages/AccessDenied'; // Corrected import for Access Denied page
 import PrivateRoute from './components/PrivateRoute'; // Ensure this import is correct
-
 import Footer from './components/Footer'; 
 import PageNotFound from './pages/PageNotFound'; // Import the PageNotFound component
 
@@ -16,7 +15,9 @@ const App = () => {
     <AuthProvider>
       <Router>
         <Routes>
+
         <Route path="/" element={<BuyerDashboard />} />
+       
           <Route path="/login" element={<Login />} />
          
           <Route path="/register" element={<Register />} />

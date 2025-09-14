@@ -46,7 +46,7 @@ const Footer = () => {
             <li><Link to="/">Buyer Dashboard</Link></li>
             <li><Link to="/login">Login</Link></li>
             <li><Link to="/register">Register</Link></li>
-            <li><Link to="/">Home</Link></li>
+            
           </ul>
         </div>
 
@@ -83,10 +83,10 @@ const Footer = () => {
       <div className="footer-bottom">
       <p>
   &copy; {new Date().getFullYear()} All Rights Reserved. 
-  <a href="https://muteeb-portfolio1.firebaseapp.com/" target="_blank" rel="noopener noreferrer">
-     Developed by Muteeb Ramzan
+  <a href="" target="_blank" rel="noopener noreferrer">
+     Developed by Laiba Sarwar
   </a> 
-  ❤️
+  
 </p>
       </div>
     </footer>

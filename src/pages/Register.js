@@ -9,8 +9,8 @@ import '../scss/_registerpage.scss';
 const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [storeName, setStoreName] = useState('');
-  const [storeDescription, setStoreDescription] = useState('');
+  const [organizationName, setOrganizationName] = useState('');
+  const [organizationDescription, setOrganizationDescription] = useState('');
   const [userRole, setUserRole] = useState('buyer');
   const [birthday, setBirthday] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -26,13 +26,13 @@ const Register = () => {
         role: userRole,
         birthday: birthday ? birthday.format('YYYY-MM-DD') : '',
         ...(userRole === 'seller' && {
-          storeName,
-          storeDescription,
+          organizationName,
+          organizationDescription,
         }),
       };
 
       await setDoc(doc(db, 'users', user.uid), userData);
-      message.success('User registered successfully!');
+      message.success('Account created successfully!');
       resetForm();
     } catch (error) {
       handleError(error);
@@ -56,7 +56,7 @@ const Register = () => {
       };
 
       await setDoc(doc(db, 'users', user.uid), userData);
-      message.success('User registered successfully with Google!');
+      message.success('Account created successfully with Google!');
       resetForm();
     } catch (error) {
       handleError(error);
@@ -77,8 +77,8 @@ const Register = () => {
   const resetForm = () => {
     setEmail('');
     setPassword('');
-    setStoreName('');
-    setStoreDescription('');
+    setOrganizationName('');
+    setOrganizationDescription('');
     setUserRole('buyer');
     setBirthday(null);
   };
@@ -86,17 +86,18 @@ const Register = () => {
   return (
     <div className="register-page">
       <div className="register-container">
-        <h2 className="register-heading">Welcome to Shop Nest</h2>
-        <p className="register-subheading">Shop, Smile, Save</p>
+        <h2 className="register-heading">Create EventPass Account</h2>
+        <p className="register-subtitle">Join our event management platform</p>
+      
         <Form onFinish={handleRegister} layout="vertical" className="register-form">
-          <Form.Item label="Role" required>
+          <Form.Item label="I want to:" required>
             <Radio.Group
               value={userRole}
               onChange={(e) => setUserRole(e.target.value)}
               className="role-selector"
             >
-              <Radio value="buyer">Buyer</Radio>
-              <Radio value="seller">Seller</Radio>
+              <Radio value="buyer">Attend Events</Radio>
+              <Radio value="seller">Organize Events</Radio>
             </Radio.Group>
           </Form.Item>
           <Form.Item label="Email" required>
@@ -112,7 +113,7 @@ const Register = () => {
             <Input.Password
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder="Enter your password"
+              placeholder="Create a password"
               className="input-field"
             />
           </Form.Item>
@@ -121,46 +122,57 @@ const Register = () => {
               value={birthday}
               onChange={(date) => setBirthday(date)}
               className="date-picker"
+              placeholder="Select your birthday"
             />
           </Form.Item>
           {userRole === 'seller' && (
             <>
-              <Form.Item label="Store Name">
+              <Form.Item label="Organization Name" required>
                 <Input
-                  value={storeName}
-                  onChange={(e) => setStoreName(e.target.value)}
-                  placeholder="Enter your store name"
+                  value={organizationName}
+                  onChange={(e) => setOrganizationName(e.target.value)}
+                  placeholder="Enter your organization name"
                   className="input-field"
                 />
               </Form.Item>
-              <Form.Item label="Store Description">
+              <Form.Item label="Organization Description">
                 <Input.TextArea
-                  value={storeDescription}
-                  onChange={(e) => setStoreDescription(e.target.value)}
-                  placeholder="Enter your store description"
+                  value={organizationDescription}
+                  onChange={(e) => setOrganizationDescription(e.target.value)}
+                  placeholder="Tell us about your organization"
                   className="input-field"
+                  rows={3}
                 />
               </Form.Item>
             </>
           )}
           <Form.Item>
-            <Button htmlType="submit" loading={loading} className="register-button">
-              Register
+            <Button 
+              htmlType="submit" 
+              loading={loading} 
+              className="register-button"
+              size="large"
+            >
+              Create Account
             </Button>
           </Form.Item>
+          <div className="divider">
+            <span>Or continue with</span>
+          </div>
           <Form.Item>
             <Button
               icon={<GoogleOutlined />}
               onClick={handleGoogleLogin}
               loading={loading}
               className="google-button"
+              size="large"
             >
-              Register with Google
+              Google
             </Button>
           </Form.Item>
-          <Form.Item>
+          <Form.Item className="login-redirect">
             <span>Already have an account? </span>
-            <a href="/login" className="login-link">Login here</a>
+            <a href="/login" className="login-link">Sign in</a>
           </Form.Item>
         </Form>
       </div>
